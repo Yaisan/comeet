@@ -6,6 +6,7 @@
 
 [![Imgur](https://i.imgur.com/zGQx4ZU.png)](https://github.com/Yaisan)
 
+![GitHub contributors](https://img.shields.io/github/contributors/Yaisan/comeet)
 ![GitHub followers](https://img.shields.io/github/followers/124?style=social)
 
 Comeet is an easy-to-use configuration library for Jitsi Meet.
