@@ -6,10 +6,9 @@
 
 [![Imgur](https://i.imgur.com/zGQx4ZU.png)](https://github.com/Yaisan)
 
-![Codecov](https://img.shields.io/codecov/c/github/Yaisan/comeet)
-![GitHub contributors](https://img.shields.io/github/contributors/Yaisan/comeet)
-![GitHub watchers](https://img.shields.io/github/watchers/Yaisan/comeet?style=social)
-![GitHub followers](https://img.shields.io/github/followers/124?style=social)
+![YagoClaros](https://img.shields.io/badge/yago-claros-green)
+![SantiGuzman](https://img.shields.io/badge/santiago-guzman-blue)
+
 
 Comeet is an easy-to-use configuration library for Jitsi Meet.
 You can use Comeet to manufacture your configuration files and it is also compatible with docker to create the dockerfile.
