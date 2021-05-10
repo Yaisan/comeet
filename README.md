@@ -1,7 +1,10 @@
 # Comeet
+
+[![Imgur](https://i.imgur.com/S7d0Clv.png)](https://github.com/Yaisan/comeet)
+
 ## _The ultimate jitsi meet setup_
 
-[![Imgur](https://i.imgur.com/zGQx4ZU.png)](https://nodesource.com/products/nsolid)
+[![Imgur](https://i.imgur.com/zGQx4ZU.png)](https://github.com/Yaisan)
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
