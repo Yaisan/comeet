@@ -11,8 +11,8 @@
 Comeet is an easy-to-use configuration library for Jitsi Meet.
 You can use Comeet to manufacture your configuration files and it is also compatible with docker to create the dockerfile.
 
-- Type some Markdown on the left
-- See HTML in the right
+- Select the configuration you want
+- View the final configuration
 - ✨Magic ✨
 
 ## Features
