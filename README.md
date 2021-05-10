@@ -1,6 +1,6 @@
 # Comeet
 
-[![Imgur](https://i.imgur.com/S7d0Clv.png)](https://github.com/Yaisan/comeet)
+[![Imgur](https://i.imgur.com/ndc6r4t.jpg))](https://github.com/Yaisan/comeet)
 
 ## _The ultimate jitsi meet setup_
 
