@@ -6,6 +6,7 @@
 
 [![Imgur](https://i.imgur.com/zGQx4ZU.png)](https://github.com/Yaisan)
 
+![Codecov](https://img.shields.io/codecov/c/github/Yaisan/comeet)
 ![GitHub watchers](https://img.shields.io/github/watchers/Yaisan/comeet?style=social)
 ![GitHub contributors](https://img.shields.io/github/contributors/Yaisan/comeet)
 ![GitHub followers](https://img.shields.io/github/followers/124?style=social)
