@@ -11,6 +11,9 @@ ARG DOMAIN=meet.yaisan.cat
 RUN apt update \
     && apt -y install systemd; apt clean all;
 
+RUN apt install -y wget curl gpg apt-transport-https software-properties-common \
+    && apt update
+
 RUN curl https://download.jitsi.org/jitsi-key.gpg.key | sh -c 'gpg --dearmor > /usr/share/keyrings/jitsi-keyring.gpg' \
     && echo 'deb [signed-by=/usr/share/keyrings/jitsi-keyring.gpg] https://download.jitsi.org stable/' | tee /etc/apt/sources.list.d/jitsi-stable.list > /dev/null \
     && echo deb http://packages.prosody.im/debian $(lsb_release -sc) main | tee -a /etc/apt/sources.list \
