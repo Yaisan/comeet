@@ -6,9 +6,18 @@ LABEL "authors"="Santiago Guzman and Yago Claros"
 LABEL description="This is custom Docker Image for \
 the Comeet App."
 
-EXPOSE 80/tcp
-EXPOSE 443/tcp
-EXPOSE 10000/udp
-EXPOSE 22/tcp
-EXPOSE 3478/udp
-EXPOSE 5349/tcp
+ARG DOMAIN=meet.yaisan.cat
+
+RUN apt update \
+    && apt -y install systemd; apt clean all;
+
+RUN curl https://download.jitsi.org/jitsi-key.gpg.key | sh -c 'gpg --dearmor > /usr/share/keyrings/jitsi-keyring.gpg' \
+    && echo 'deb [signed-by=/usr/share/keyrings/jitsi-keyring.gpg] https://download.jitsi.org stable/' | tee /etc/apt/sources.list.d/jitsi-stable.list > /dev/null \
+    && echo deb http://packages.prosody.im/debian $(lsb_release -sc) main | tee -a /etc/apt/sources.list \
+    && wget https://prosody.im/files/prosody-debian-packages.key -O- | apt-key add - \
+    && apt update
+
+RUN apt-get install -y prosody \
+    && echo ${DOMAIN} | apt install -y jitsi-meet
+
+CMD ["/sbin/init"]
