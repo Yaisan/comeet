@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>YAISAN</title>
+    <meta name="description" content="A synthesis project of two SMX students" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css" />
+    <!--JS-->
+    <script src="https://kit.fontawesome.com/ac40c2f10c.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <!--Navbar-->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="./index.html">
+          <img src="./img/Logo.svg" width="112" height="28">
+        </a>
+    </nav>
+    <!--Main-->
+    <section class="hero is-fullheight">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <div class="column is-4 is-offset-4">
+            <div class="box">
+              <p class="subtitle is-4">Please login to proceed.</p>
+              <br />
+              <form>
+                <div class="field">
+                  <p class="control has-icons-left has-icons-right">
+                    <input class="input is-medium" type="email" placeholder="Email" />
+                    <span class="icon is-medium is-left">
+                      <i class="fas fa-envelope"></i>
+                    </span>
+                    <span class="icon is-medium is-right">
+                      <i class="fas fa-check"></i>
+                    </span>
+                  </p>
+                </div>
+                <div class="field">
+                  <p class="control has-icons-left">
+                    <input class="input is-medium" type="password" placeholder="Password" />
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-lock"></i>
+                    </span>
+                  </p>
+                </div>
+                <div class="field">
+                  <label class="checkbox">
+                    <input type="checkbox" />
+                    Remember me
+                  </label>
+                </div>
+                <a href="./index.html"><button class="button is-block is-info is-large is-fullwidth" formaction="./index.html">Login</button></a><br />
+                <p class="subtitle is-5">Login using Social Media</p>
+                <div class="buttons is-centered" style="margin-bottom: 0;">
+                  <a class="button is-medium is-facebook">
+                    <span class="icon">
+                      <i class="fab fa-facebook-f fa-lg"></i>
+                    </span>
+                  </a>
+                  <a class="button is-medium is-twitter">
+                    <span class="icon">
+                      <i class="fab fa-twitter fa-lg"></i>
+                    </span>
+                  </a>
+                  <a class="button is-medium is-github">
+                    <span class="icon">
+                      <i class="fab fa-github fa-lg"></i>
+                    </span>
+                  </a>
+                </div>
+              </form>
+            </div>
+            <p class="has-text-grey">
+              <a href="#">Sign Up</a> &nbsp;·&nbsp; <a href="#">Forgot Password</a> &nbsp;·&nbsp;
+              <a href="#">Need Help?</a>
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
