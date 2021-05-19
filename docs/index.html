@@ -1,68 +1,131 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>YAISAN</title>
-    <meta name="description" content="A synthesis project of two SMX students" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--CSS-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css" />
-    <!--JS-->
-    <script src="https://kit.fontawesome.com/ac40c2f10c.js" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
-  </head>
-  <body>
-    <!--Navbar-->
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="./home.html">
-          <img src="./img/Logo.svg" width="112" height="28">
-        </a>
-    </nav>
-    <!--Main-->
-    <section class="hero is-fullheight">
-      <div class="hero-body">
-        <div class="container has-text-centered">
-          <div class="column is-4 is-offset-4">
-            <div class="box">
-              <figure class="image">
-                  <img src="./img/Welcome.svg">
-                </figure>
-                <br />
-              <p class="subtitle is-4">Please login to proceed.</p>
-              <br />
-              <form>
-                <div class="field">
-                  <p class="control has-icons-left has-icons-right">
-                    <input class="input is-medium" type="email" placeholder="Email" />
-                    <span class="icon is-medium is-left">
-                      <i class="fas fa-envelope"></i>
-                    </span>
-                    <span class="icon is-medium is-right">
-                      <i class="fas fa-check"></i>
-                    </span>
-                  </p>
-                </div>
-                <div class="field">
-                  <p class="control has-icons-left">
-                    <input class="input is-medium" type="password" placeholder="Password" />
-                    <span class="icon is-small is-left">
-                      <i class="fas fa-lock"></i>
-                    </span>
-                  </p>
-                </div>
-                <div class="field">
-                  <label class="checkbox">
-                    <input type="checkbox" />
-                    Remember me
-                  </label>
-                </div>
-                <a href="./home.html"><button class="button is-block is-info is-large is-fullwidth" formaction="./home.html">Login</button></a><br />
-                
+    <head>
+        <title>YAISAN</title>
+        <meta name="description" content="A synthesis project of two SMX students" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--CSS-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma-rtl.min.css"/>
+        <!--JS-->
+        <script src="https://kit.fontawesome.com/ac40c2f10c.js" crossorigin="anonymous"></script>
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <!--Navbar-->
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+              <a class="navbar-item" href="./index.html">
+                <img src="./img/Logo.svg" width="112" height="28">
+              </a>
+          
+              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+              </a>
             </div>
+          
+            <div id="navbarBasicExample" class="navbar-menu">
+              <div class="navbar-start">
+                <a class="navbar-item" href="index.html">
+                  Home
+                </a>
+          
+                <a class="navbar-item" href="doc.html">
+                  Documentation
+                </a>
+
+                <a class="navbar-item" href="contact.html">
+                  Contact
+                </a>
+
+                <a class="navbar-item" href="comeet.html">
+                    <strong>Comeet</strong>
+                  </a>
+
+                </div>
+              </div>
+            </div>
+          </nav>
+        <!--main-->
+        <section class="box">
+          
+            <div class="content is-medium">
+                <h1>Hello World</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
+              </div>
+        </section>
+        <!--Maio¡n 2-->
+        <div class="box">
+            <section class="section is-medium">
+                <h1 class="title">Section</h1>
+                <h2 class="subtitle">
+                  A simple container to divide your page into <strong>sections</strong>, like the one you're currently reading.
+                </h2>
+              </section>
           </div>
+        <!--Column cards-->
+        <section class="section">
+        <div class="columns">
+            <div class="column">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <figure class="image is-48x48">
+                                    <img src="./img/santiprofile.jpg" alt="Placeholder image" />
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <p class="title is-4">Santiago Guzman</p>
+                                <p class="subtitle is-6">@santito</p>
+                            </div>
+                        </div>
+                        <div class="content">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+                            <a>@bulmaio</a>.
+
+                            <a href="#">#css</a>
+                            <a href="#">#responsive</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <figure class="image is-48x48">
+                                    <img src="./img/yagoprofile.jpg" alt="Placeholder image" />
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <p class="title is-4">Yago Claros</p>
+                                <p class="subtitle is-6">@yaguisus</p>
+                            </div>
+                        </div>
+                        <div n  class="content">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+                            <a>@bulmaio</a>.
+
+                            <a href="#">#css</a>
+                            <a href="#">#responsive</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </section>
-  </body>
+        </section>
+        <!--footer-->
+        <footer class="footer">
+            <div class="content has-text-centered">
+              <p>
+                 by <a href="https://github.com/Yelsier">Yago Claros</a> and <a href="https://github.com/SantitoGit">Santiago Guzman</a>
+              </p>
+            </div>
+          </footer>
+    </body>
 </html>
+
+
