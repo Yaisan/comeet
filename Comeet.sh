@@ -25,6 +25,8 @@ function comeet(){
   echo "Remaining processes:"$proc
   # Tasks.
   #
+  echo "Set a domain"
+  read DOMAIN 
   echo "Mounting the docker container"
   docker build - t jitsi-- build - arg DOMAIN = $DOMAIN.docker run - p 443: 443 / tcp - p 80: 80 / tcp - p 10000: 10000 / udp - p 3478: 3478 / udp - p 5349:5349 / tcp-- name contenedor - jitsi - d jitsi &> $trash #
   let "proc -= 1"
@@ -60,14 +62,14 @@ function comeet(){
 clear
 # We verify that the docker package is installed.
 # In the case of FALSE, we install the docker.io package
-if !dpkg -s docker.io &> $trash; then
+if !dpkg -s docker.io; then
 echo 
 echo "============================================================================"
 echo "¡The docker package is not currently installed!" 1>&2
 echo "============================================================================"
 echo
 echo "[installing the package]"
-sudo apt install - y docker.io 
+sudo apt install - y docker.io &> $trash #
 fi
 # We check that the Bash file has been run as SuperUser - root.
 # In the case of FALSE, we inform the user to rerun with root permissions.
