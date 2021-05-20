@@ -66,10 +66,10 @@ clear
 # We verify that the docker package is installed.
 # In the case of FALSE, we install the docker.io package
 check_for_package(){
-  if dpkg-query -s docker.io &> $trash; then
+  if dpkg-query -s docker.io; then
     return 0   # package is installed
   else
-    if apt-cache show docker.io &> $trash; then
+    if apt-cache show docker.io; then
       return 1 # package is not installed, it is available in package repository
     fi
   fi
