@@ -2,7 +2,7 @@
 # Function for installation tasks
 function comeet(){
   # Variables.
-  let proc=7
+  let proc=8
   trash="/dev/null"
   current_user=$(whoami)
   # Cool text.
@@ -38,27 +38,32 @@ function comeet(){
   read DOMAIN 
   #
   echo "Mounting the docker container"
-  docker build - t jitsi-- build - arg DOMAIN = $DOMAIN.docker run - p 443: 443 / tcp - p 80: 80 / tcp - p 10000: 10000 / udp - p 3478: 3478 / udp - p 5349:5349 / tcp-- name contenedor - jitsi - d jitsi &> $trash #
+  docker build -t jitsi --build-arg DOMAIN=$DOMAIN . &> $trash #
+  let "proc -= 1"
+  echo "Remaining processes: "$proc
+  #
+  echo "Running the docker container"
+  docker run -p 443:443/tcp -p 80:80/tcp -p 10000:10000/udp -p 3478:3478/udp -p 5349:5349/tcp --name contenedor-jitsi -d jitsi &> $trash #
   let "proc -= 1"
   echo "Remaining processes: "$proc
   #
   echo "Starting the nginx service in the container"
-  docker exec - it contenedor - jitsi service nginx start &> $trash #
+  docker exec -it contenedor - jitsi service nginx start &> $trash #
   let "proc -= 1"
   echo "Remaining processes: "$proc
   #
   echo "Starting the jitsi-videobridge2 service in the container"
-  docker exec - it contenedor - jitsi service jitsi - videobridge2 start &> $trash #
+  docker exec -it contenedor - jitsi service jitsi - videobridge2 start &> $trash #
   let "proc -= 1"
   echo "Remaining processes: "$proc
   #
   echo "Starting the prosody service in the container"
-  docker exec - it contenedor - jitsi service prosody start &> $trash #
+  docker exec -it contenedor - jitsi service prosody start &> $trash #
   let "proc -= 1"
   echo "Remaining processes: "$proc
   #
   echo "Starting the jicofo service in the container"
-  docker exec - it contenedor - jitsi service jicofo start &> $trash #
+  docker exec -it contenedor - jitsi service jicofo start &> $trash #
   # We indicate to the user that we have completed the tasks.
   echo
   echo "[Tasks completed successfully]"
