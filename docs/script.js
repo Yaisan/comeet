@@ -38,23 +38,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //Search Bar
   function mySearchFunction() {
-    var input, filter, ul, li, item, i, txtValue;
-    input = document.getElementById("myInput");
-
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("Kurser");
-    li = ul.getElementsByTagName("li");
-
-    for (i = 0; i < li.length; i++) {
-        item = li[i];
-
-        txtValue = item.textContent || item.innerText;
-
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-
-        } else {
-            li[i].style.display = "none";
+    let input = document.getElementById('myInput').value
+    input=input.toLowerCase();
+    let x = document.getElementsByClassName('blocks');
+      
+    for (i = 0; i < x.length; i++) { 
+        if (!x[i].innerHTML.toLowerCase().includes(input)) {
+            x[i].style.display="none";
+        }
+        else {
+            x[i].style.display="list-item";                 
         }
     }
 }
