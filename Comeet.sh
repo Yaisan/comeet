@@ -26,21 +26,8 @@ function comeet(){
   # Tasks.
   # We verify that the docker package is installed.
   # In the case of FALSE, we install the docker.io package
-  if !dpkg -s docker.io; then
-    echo 
-    echo "============================================================================"
-    echo "¡The docker package is not currently installed!" 1>&2
-    echo "============================================================================"
-    echo
-    echo "[installing the package]"
-  sudo apt install -y docker.io &> $trash #
-  else
-    echo 
-    echo "============================================================================"
-    echo "¡The docker package is currently installed!" 1>&2
-    echo "============================================================================"
-    echo
-  fi
+  echo "check that the docker.io package is installed"
+  dpkg -s <pkg-name> 2>$trash >$trash || sudo apt-get -y install <pkg-name>
   let "proc -= 1"
   echo "Remaining processes: "$proc
 
