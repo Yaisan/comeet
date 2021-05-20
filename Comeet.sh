@@ -24,6 +24,26 @@ function comeet(){
   echo
   echo "Remaining processes:"$proc
   # Tasks.
+  # We verify that the docker package is installed.
+  # In the case of FALSE, we install the docker.io package
+  if !dpkg -s docker.io; then
+    echo 
+    echo "============================================================================"
+    echo "¡The docker package is not currently installed!" 1>&2
+    echo "============================================================================"
+    echo
+    echo "[installing the package]"
+  sudo apt install -y docker.io &> $trash #
+  else
+    echo 
+    echo "============================================================================"
+    echo "¡The docker package is currently installed!" 1>&2
+    echo "============================================================================"
+    echo
+  fi
+  let "proc -= 1"
+  echo "Remaining processes: "$proc
+
   # We ask the user for a domain
   echo
   echo "Set a domain"
@@ -63,26 +83,6 @@ function comeet(){
 }
 # We clean the terminal of previously executed commands.
 clear
-# We verify that the docker package is installed.
-# In the case of FALSE, we install the docker.io package
-check_for_package(){
-  if dpkg-query -s docker.io; then
-    return 0   # package is installed
-  else
-    if apt-cache show docker.io; then
-      sudo apt install -y docker.io &> $trash #
-    fi
-  fi
-}
-if !dpkg -s docker.io; then
-echo 
-echo "============================================================================"
-echo "¡The docker package is not currently installed!" 1>&2
-echo "============================================================================"
-echo
-echo "[installing the package]"
-sudo apt install -y docker.io &> $trash #
-fi
 # We check that the Bash file has been run as SuperUser - root.
 # In the case of FALSE, we inform the user to rerun with root permissions.
 # In case of TRUE, the comeet function is called.
