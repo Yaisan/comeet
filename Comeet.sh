@@ -6,12 +6,12 @@ function comeet(){
   trash="/dev/null"
   current_user=$(whoami)
   # Cool text.
-  echo " ██████╗ ██████╗ ███╗   ███╗███████╗███████╗████████╗"
-  echo "██╔════╝██╔═══██╗████╗ ████║██╔════╝██╔════╝╚══██╔══╝"
-  echo "██║     ██║   ██║██╔████╔██║█████╗  █████╗     ██║   "
-  echo "██║     ██║   ██║██║╚██╔╝██║██╔══╝  ██╔══╝     ██║   "
-  echo "╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗███████╗   ██║   "
-  echo " ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝╚══════╝   ╚═╝   "
+  echo -e " ██████╗ ██████╗ ███╗   ███╗███████╗███████╗████████╗"
+  echo -e "██╔════╝██╔═══██╗████╗ ████║██╔════╝██╔════╝╚══██╔══╝"
+  echo -e "██║     ██║   ██║██╔████╔██║█████╗  █████╗     ██║   "
+  echo -e "██║     ██║   ██║██║╚██╔╝██║██╔══╝  ██╔══╝     ██║   "
+  echo -e "╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗███████╗   ██║   "
+  echo -e " ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝╚══════╝   ╚═╝   "
 
   # Introductory text.
   echo "================================================================================"
@@ -23,6 +23,7 @@ function comeet(){
   echo "[Performing tasks, please wait a moment (Do not close the terminal) ...]"
   echo
   echo "Remaining processes:"$proc
+  echo
   # Tasks.
   # We verify that the docker package is installed.
   # In the case of FALSE, we install the docker.io package
@@ -48,22 +49,22 @@ function comeet(){
   echo "Remaining processes: "$proc
   #
   echo "Starting the nginx service in the container"
-  docker exec -it contenedor - jitsi service nginx start &> $trash #
+  docker exec -it contenedor-jitsi service nginx start &> $trash #
   let "proc -= 1"
   echo "Remaining processes: "$proc
   #
   echo "Starting the jitsi-videobridge2 service in the container"
-  docker exec -it contenedor - jitsi service jitsi - videobridge2 start &> $trash #
+  docker exec -it contenedor-jitsi service jitsi - videobridge2 start &> $trash #
   let "proc -= 1"
   echo "Remaining processes: "$proc
   #
   echo "Starting the prosody service in the container"
-  docker exec -it contenedor - jitsi service prosody start &> $trash #
+  docker exec -it contenedor-jitsi service prosody start &> $trash #
   let "proc -= 1"
   echo "Remaining processes: "$proc
   #
   echo "Starting the jicofo service in the container"
-  docker exec -it contenedor - jitsi service jicofo start &> $trash #
+  docker exec -it contenedor-jitsi service jicofo start &> $trash #
   # We indicate to the user that we have completed the tasks.
   echo
   echo "[Tasks completed successfully]"
