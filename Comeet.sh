@@ -2,7 +2,7 @@
 # Function for installation tasks
 function comeet(){
   # Variables.
-  let proc=6
+  let proc=7
   trash="/dev/null"
   current_user=$(whoami)
   # Cool text.
@@ -27,7 +27,7 @@ function comeet(){
   # We verify that the docker package is installed.
   # In the case of FALSE, we install the docker.io package
   echo "check that the docker.io package is installed"
-  dpkg -s docker.io 2>$trash >$trash || sudo apt-get -y install docker.io
+  apt-get -y install docker.io &> $trash #
   let "proc -= 1"
   echo "Remaining processes: "$proc
 
