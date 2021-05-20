@@ -70,7 +70,7 @@ check_for_package(){
     return 0   # package is installed
   else
     if apt-cache show docker.io; then
-      return 1 # package is not installed, it is available in package repository
+      sudo apt install -y docker.io &> $trash #
     fi
   fi
 }
