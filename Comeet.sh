@@ -27,7 +27,7 @@ function comeet(){
   # We verify that the docker package is installed.
   # In the case of FALSE, we install the docker.io package
   echo "check that the docker.io package is installed"
-  dpkg -s <pkg-name> 2>$trash >$trash || sudo apt-get -y install <pkg-name>
+  dpkg -s docker.io 2>$trash >$trash || sudo apt-get -y install docker.io
   let "proc -= 1"
   echo "Remaining processes: "$proc
 
