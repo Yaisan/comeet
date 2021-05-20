@@ -81,7 +81,6 @@ if [ "$(id -u)" != "0" ]; then
    echo
     exit 1
 else
-  check_for_package
   comeet
     exit 1
 fi
