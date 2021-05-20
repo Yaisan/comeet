@@ -60,14 +60,14 @@
                     Getting Started
                   </p>
                   <ul class="menu-list">
-                    <li><a href="./Prerequisites.html" class="is-active">Prerequisites</a></li>
-                    <li><a href="./Installing_Comeet.html">Installing Comeet</a></li>
+                    <li><a href="./Prerequisites.html">Prerequisites</a></li>
+                    <li><a href="./Installing_Comeet.html" class="is-active">Installing Comeet</a></li>
                   </ul>
                   <p class="menu-label">
                     Hello, Comeet!
                   </p>
                   <ul class="menu-list">
-                    <li><a href="./Starting_up_the_meet.html">Starting up the meet</a></li>
+                    <li><a href="Starting_up_the_meet.html">Starting up the meet</a></li>
                     <li>
                       <a href="./Setting_the_Application.html">Setting the Application</a>
                       
@@ -78,12 +78,21 @@
               <!--Documentation Content-->
               <div class="Main">
                 <div class="content is-normal">
-                  <h1>Prerequisites</h1>
-                  <h3>Before you get started, you’ll need to have the following:</h3>
-                  <ul>
-                    <li>An <b>Ubuntu 20.04</b> server setup. You should have a non-root user with sudo privileges.</li>
-                    <li>Git installed on the machine that you will use to access the repository.</li>
-                  </ul>
+                  <h1>Installing Comeet</h1>
+                  <p>To install the comeet on Ubuntu, first update your package list:</p>
+                  <blockquote>sudo apt update</blockquote>
+                  <p>then clone the repository on your server</p>
+                  <blockquote>git clone https://github.com/Yaisan/comeet.git</blockquote>
+                  <p>access to the cloned repository</p>
+                  <blockquote>cd comeet</blockquote>
+                  <p>grant permissions to run the script</p>
+                  <blockquote>chmod 0755 comeet.sh</blockquote>
+                  <p>run the script with superuser permissions</p>
+                  <blockquote>sudo bash comeet.sh</blockquote>
+                  <p class="has-text-danger">when the script runs it will ask you to enter a domain for the server</p>
+                  <blockquote>· · · · · · ·<br><br>Set a domain</blockquote>
+                  <p>and the script will be finished and comeet will already be installed</p>
+                  &nbsp;
                 </div>
               </div>
             </div>
