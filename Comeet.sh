@@ -65,6 +65,15 @@ function comeet(){
 clear
 # We verify that the docker package is installed.
 # In the case of FALSE, we install the docker.io package
+check_for_package(){
+  if dpkg-query -s docker.io &> $trash; then
+    return 0   # package is installed
+  else
+    if apt-cache show docker.io &> $trash; then
+      return 1 # package is not installed, it is available in package repository
+    fi
+  fi
+}
 if !dpkg -s docker.io; then
 echo 
 echo "============================================================================"
@@ -85,6 +94,7 @@ if [ "$(id -u)" != "0" ]; then
    echo
     exit 1
 else
+  check_for_package
   comeet
     exit 1
 fi
