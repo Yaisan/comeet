@@ -2,7 +2,7 @@
 # Function for installation tasks
 function comeet(){
   # Variables.
-  let proc=8
+  let proc=7
   trash="/dev/null"
   current_user=$(whoami)
   # Cool text.
@@ -22,7 +22,7 @@ function comeet(){
   echo
   echo "[Performing tasks, please wait a moment (Do not close the terminal) ...]"
   echo
-  echo "Remaining processes:"$proc
+  echo "Processes:"$proc
   echo
   # Tasks.
   # We verify that the docker package is installed.
@@ -35,7 +35,6 @@ function comeet(){
   # We ask the user for a domain
   echo
   echo "Set a domain"
-  echo
   read DOMAIN 
   #
   echo "Mounting the docker container"
@@ -54,7 +53,7 @@ function comeet(){
   echo "Remaining processes: "$proc
   #
   echo "Starting the jitsi-videobridge2 service in the container"
-  docker exec -it contenedor-jitsi service jitsi - videobridge2 start &> $trash #
+  docker exec -it contenedor-jitsi service jitsi-videobridge2 start &> $trash #
   let "proc -= 1"
   echo "Remaining processes: "$proc
   #
