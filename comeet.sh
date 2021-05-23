@@ -87,8 +87,10 @@ function comeet(){
   # Define a variable to store the modified domain for these configuration files
   NewDomain=$(echo $DOMAIN | sed -e "s/\b.\b/%2e/g")
   #
-  docker exec -it contenedor-jitsi mkdir -p /var/lib/prosody/conference%2e$NewDomain/config && chmod 747 /var/lib/prosody/conference%2e$NewDomain/config && chmod 755 /var/lib/prosody/conference%2e$NewDomain &> $trash #
-  docker exec -it contenedor-jitsi mkdir -p /var/lib/prosody/$NewDomain/accounts && chmod 757 /var/lib/prosody/$NewDomain/accounts && chmod 755 /var/lib/prosody/$NewDomain &> $trash #
+  docker exec -it contenedor-jitsi mkdir -p /var/lib/prosody/conference%2e$NewDomain/config &> $trash #
+  docker exec -it contenedor-jitsi mkdir -p /var/lib/prosody/$NewDomain/accounts &> $trash #
+  docker exec -it contenedor-jitsi chmod 747 /var/lib/prosody/conference%2e$NewDomain/config && chmod 755 /var/lib/prosody/conference%2e$NewDomain &> $trash #
+  docker exec -it contenedor-jitsi chmod 757 /var/lib/prosody/$NewDomain/accounts && chmod 755 /var/lib/prosody/$NewDomain &> $trash #
   #
   # We indicate to the user that we have completed the tasks.
   echo
