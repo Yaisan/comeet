@@ -20,7 +20,7 @@ RUN curl https://download.jitsi.org/jitsi-key.gpg.key | sh -c 'gpg --dearmor > /
     && wget https://prosody.im/files/prosody-debian-packages.key -O- | apt-key add - \
     && apt update
 
-RUN apt-get install -y prosody \
+RUN apt-get install -y prosody sudo php7.2-fpm \
     && echo ${DOMAIN} | apt install -y jitsi-meet
 
 CMD ["/sbin/init"]
