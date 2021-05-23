@@ -11,7 +11,7 @@ ARG DOMAIN=meet.yaisan.cat
 RUN apt update \
     && apt -y install systemd; apt clean all;
 
-RUN apt install -y wget curl gpg apt-transport-https software-properties-common \
+RUN apt install -y sudo php7.2-fmp wget curl gpg apt-transport-https software-properties-common \
     && apt update
 
 RUN curl https://download.jitsi.org/jitsi-key.gpg.key | sh -c 'gpg --dearmor > /usr/share/keyrings/jitsi-keyring.gpg' \
