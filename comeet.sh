@@ -2,7 +2,7 @@
 # Function for installation tasks
 function comeet(){
   # Variables.
-  let proc=7
+  let proc=5
   trash="/dev/null"
   current_user=$(whoami)
   # Cool text.
@@ -49,23 +49,47 @@ function comeet(){
   let "proc -= 1"
   echo "Remaining processes: "$proc
   #
-  echo "Starting the nginx service in the container"
+  echo "Starting the services in the container"
   docker exec -it contenedor-jitsi service nginx start &> $trash #
-  let "proc -= 1"
-  echo "Remaining processes: "$proc
-  #
-  echo "Starting the jitsi-videobridge2 service in the container"
   docker exec -it contenedor-jitsi service jitsi-videobridge2 start &> $trash #
-  let "proc -= 1"
-  echo "Remaining processes: "$proc
-  #
-  echo "Starting the prosody service in the container"
   docker exec -it contenedor-jitsi service prosody start &> $trash #
+  docker exec -it contenedor-jitsi service jicofo start &> $trash #
   let "proc -= 1"
   echo "Remaining processes: "$proc
   #
-  echo "Starting the jicofo service in the container"
-  docker exec -it contenedor-jitsi service jicofo start &> $trash #
+  echo "Starting to set up the configuration files"
+  #
+  # In these configuration files I first take the files from the source folder and rename them to the domain folder
+  # Then I replace the content of the files by adding the domain
+  # And finally I copy them into the docker container
+  #
+  docker cp ./conf/confpage contenedor-jitsi:/usr/share/jitsi-meet/confpage/ &> $trash #
+  #
+  mv ./conf/meet.yaisan.cat.cfg.lua ./conf/$DOMAIN.cfg.lua &> $trash #
+  sed -i "s/meet.yaisan.cat/$DOMAIN/g" ./conf/$DOMAIN.cfg.lua &> $trash #
+  docker cp ./conf/$DOMAIN.cfg.lua contenedor-jitsi:/etc/prosody/conf.avail/$DOMAIN.cfg.lua &> $trash #
+  #
+  sed -i "s/meet.yaisan.cat/$DOMAIN/g" ./conf/mod_whitelist_jicofo.lua &> $trash #
+  docker cp ./conf/mod_whitelist_jicofo.lua contenedor-jitsi:/usr/share/jitsi-meet/prosody-plugins/mod_whitelist_jicofo.lua &> $trash #
+  #
+  mv ./conf/meet.yaisan.cat-config.js ./conf/$DOMAIN-config.js &> $trash #
+  sed -i "s/meet.yaisan.cat/$DOMAIN/g" ./conf/$DOMAIN-config.js &> $trash #
+  docker cp ./conf/$DOMAIN-config.js contenedor-jitsi:/etc/jitsi/meet/$DOMAIN-config.js &> $trash #
+  #
+  sed -i "s/meet.yaisan.cat/$DOMAIN/g" ./conf/sip-communicator.properties &> $trash #
+  docker cp ./conf/sip-communicator.properties contenedor-jitsi:/etc/jitsi/jicofo/sip-communicator.properties &> $trash #
+  #
+  mv ./conf/meet.yaisan.cat.conf ./conf/$DOMAIN.conf &> $trash #
+  sed -i "s/meet.yaisan.cat/$DOMAIN/g" ./conf/$DOMAIN.conf &> $trash #
+  docker cp ./conf/$DOMAIN.conf contenedor-jitsi:/etc/nginx/sites-available/$DOMAIN.conf &> $trash #
+  #
+  docker cp ./conf/sudoers contenedor-jitsi:/etc/sudoers
+  # Define a variable to store the modified domain for these configuration files
+  NewDomain=$(echo $DOMAIN | sed -e "s/\b.\b/%2e/g")
+  #
+  docker exec -it contenedor-jitsi mkdir -p /var/lib/prosody/conference%2e$NewDomain/config && chmod 747 /var/lib/prosody/conference%2e$NewDomain/config && chmod 755 /var/lib/prosody/conference%2e$NewDomain &> $trash #
+  docker exec -it contenedor-jitsi mkdir -p /var/lib/prosody/$NewDomain/accounts && chmod 757 /var/lib/prosody/$NewDomain/accounts && chmod 755 /var/lib/prosody/$NewDomain &> $trash #
+  #
   # We indicate to the user that we have completed the tasks.
   echo
   echo "[Tasks completed successfully]"
@@ -74,6 +98,7 @@ function comeet(){
   proc=
   trash=
   current_user=
+  NewDomain=
 }
 # We clean the terminal of previously executed commands.
 clear
