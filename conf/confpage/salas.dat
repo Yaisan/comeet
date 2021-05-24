@@ -1,0 +1,14 @@
+return {
+	["_affiliation_data"] = {};
+	["_affiliations"] = {
+		["focus@auth.$domain"] = "owner";
+	};
+	["jid"] = "$name@conference.$domain";
+	["_data"] = {
+		["meetingId"] = "$id";
+		["whois"] = "anyone";
+		["persistent"] = true;
+		["hidden"] = true;
+		["password"] = "$password";
+	};
+};
