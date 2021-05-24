@@ -59,6 +59,7 @@ function comeet(){
   # And finally I copy them into the docker container
   #
   docker cp ./conf/confpage contenedor-jitsi:/usr/share/jitsi-meet/confpage/ &> $trash #
+  docker exec -it contenedor-jitsi chmod 755 /usr/share/jitsi-meet/confpage/chdat.sh &> $trash #
   #
   mv ./conf/meet.yaisan.cat.cfg.lua ./conf/$DOMAIN.cfg.lua &> $trash #
   sed -i "s/meet.yaisan.cat/$DOMAIN/g" ./conf/$DOMAIN.cfg.lua &> $trash #
