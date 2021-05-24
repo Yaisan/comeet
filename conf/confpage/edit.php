@@ -9,7 +9,7 @@ $dominio = $_SERVER['HTTP_HOST'];
 $rutaSalas = str_replace('.', '%2e', $dominio);
 $rutaSalas = '/var/lib/prosody/conference%2e'.$rutaSalas.'/config';
 $archivo = $rutaSalas.'/'.$sala.'.dat';
-shell_exec('sudo /etc/init.d/prosody stop');
+//shell_exec('sudo /etc/init.d/prosody stop');
 shell_exec('rm '.$archivo);
 $file = fopen($rutaSalas.'/'.$newRoom.'.dat','w');
 
@@ -23,7 +23,7 @@ foreach ($lectura as $value) {
 }
 fclose($file);
 shell_exec('sudo chown prosody:prosody '.$rutaSalas.'/'.$newRoom.'.dat');
-shell_exec('sudo /etc/init.d/prosody start');
+//shell_exec('sudo /etc/init.d/prosody start');
 shell_exec('bash /usr/share/jitsi-meet/confpage/chdat.sh');
 echo 'Room updated successfully, It make take some seconds for rooms to start working again.';
 }
