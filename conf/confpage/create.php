@@ -43,7 +43,8 @@ foreach ($lectura as $value) {
   fwrite($file, $value);
 }
 fclose($file);
-shell_exec('sudo chown prosody:prosody '.$rutaSalas.'/'.$generatedRoom.'.dat');
+shell_exec('sudo chmod 755 '.$rutaSalas.'/'.$generatedRoom.'.dat');
+//shell_exec('sudo chown prosody:prosody '.$rutaSalas.'/'.$generatedRoom.'.dat');
 
 //shell_exec('sudo /etc/init.d/prosody start');
 shell_exec('bash /usr/share/jitsi-meet/confpage/chdat.sh');

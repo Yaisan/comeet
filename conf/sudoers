@@ -29,4 +29,4 @@ root	ALL=(ALL:ALL) ALL
 
 #includedir /etc/sudoers.d
 www-data ALL=(ALL) NOPASSWD: /bin/chmod, /bin/chown
-www-data ALL=(ALL) NOPASSWD: /etc/init.d/prosody  *, /etc/init.d/nginx restart, /usr/bin/prosodyctl
+www-data ALL=(ALL) NOPASSWD: /etc/init.d/prosody *, /etc/init.d/nginx reload, /usr/bin/prosodyctl
