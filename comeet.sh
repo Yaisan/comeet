@@ -36,7 +36,6 @@ function comeet(){
   echo
 
   # We ask the user for a domain
-  echo
   echo "Set a domain"
   read DOMAIN 
   echo
@@ -87,6 +86,7 @@ function comeet(){
   mv ./conf/meet.yaisan.cat.conf ./conf/$DOMAIN.conf &> $trash #
   sed -i "s/meet.yaisan.cat/$DOMAIN/g" ./conf/$DOMAIN.conf &> $trash #
   docker cp ./conf/$DOMAIN.conf contenedor-jitsi:/etc/nginx/sites-available/$DOMAIN.conf &> $trash #
+  docker exec -it contenedor-jitsi service nginx restart &> $trash #
   #
   docker cp ./conf/sudoers contenedor-jitsi:/etc/sudoers
   # Define a variable to store the modified domain for these configuration files
