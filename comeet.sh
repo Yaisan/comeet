@@ -52,15 +52,6 @@ function comeet(){
   echo "Remaining processes: "$proc
   echo
   #
-  echo "Starting the services in the container"
-  docker exec -it contenedor-jitsi service nginx start &> $trash #
-  docker exec -it contenedor-jitsi service jitsi-videobridge2 start &> $trash #
-  docker exec -it contenedor-jitsi service prosody start &> $trash #
-  docker exec -it contenedor-jitsi service jicofo start &> $trash #
-  let "proc -= 1"
-  echo "Remaining processes: "$proc
-  echo
-  #
   echo "Starting to set up the configuration files"
   #
   # In these configuration files I first take the files from the source folder and rename them to the domain folder
@@ -86,7 +77,6 @@ function comeet(){
   mv ./conf/meet.yaisan.cat.conf ./conf/$DOMAIN.conf &> $trash #
   sed -i "s/meet.yaisan.cat/$DOMAIN/g" ./conf/$DOMAIN.conf &> $trash #
   docker cp ./conf/$DOMAIN.conf contenedor-jitsi:/etc/nginx/sites-available/$DOMAIN.conf &> $trash #
-  docker exec -it contenedor-jitsi service nginx restart &> $trash #
   #
   docker cp ./conf/sudoers contenedor-jitsi:/etc/sudoers
   # Define a variable to store the modified domain for these configuration files
@@ -97,6 +87,17 @@ function comeet(){
   docker exec -it contenedor-jitsi chmod 747 /var/lib/prosody/conference%2e$NewDomain/config && chmod 755 /var/lib/prosody/conference%2e$NewDomain &> $trash #
   docker exec -it contenedor-jitsi chmod 757 /var/lib/prosody/$NewDomain/accounts && chmod 755 /var/lib/prosody/$NewDomain &> $trash #
   #
+
+  let "proc -= 1"
+  echo "Remaining processes: "$proc
+  echo
+  #
+  echo "Starting the services in the container"
+  docker exec -it contenedor-jitsi service nginx start &> $trash #
+  docker exec -it contenedor-jitsi service jitsi-videobridge2 start &> $trash #
+  docker exec -it contenedor-jitsi service prosody start &> $trash #
+  docker exec -it contenedor-jitsi service jicofo start &> $trash #
+  docker exec -it contenedor-jitsi service php7.2-fpm start &> $trash #
   # We indicate to the user that we have completed the tasks.
   echo
   echo "[Tasks completed successfully]"
