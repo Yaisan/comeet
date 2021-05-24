@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css" />
     <!--JS-->
     <script src="https://kit.fontawesome.com/ac40c2f10c.js" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
   </head>
   <body>
     <!--Navbar-->
