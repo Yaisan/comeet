@@ -83,6 +83,7 @@ function comeet(){
   # Define a variable to store the modified domain for these configuration files
   NewDomain=$(echo $DOMAIN | sed -e "s/\b.\b/%2e/g")
   #
+  sed -i "s/meet%2eyaisan%2ecat/$NewDomain/g" ./conf/confpage/chdat.sh
   docker exec -it contenedor-jitsi mkdir -p /var/lib/prosody/conference%2e$NewDomain/config &> $trash #
   docker exec -it contenedor-jitsi mkdir -p /var/lib/prosody/$NewDomain/accounts &> $trash #
   docker exec -it contenedor-jitsi chmod 747 /var/lib/prosody/conference%2e$NewDomain/config && chmod 755 /var/lib/prosody/conference%2e$NewDomain &> $trash #
