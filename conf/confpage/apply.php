@@ -32,8 +32,6 @@ foreach ($lectura as $value) {
 fclose($file);
 
 shell_exec('sudo chmod 644 /etc/nginx/sites-available/'.$dominio.'.conf');
-//shell_exec('sudo /etc/init.d/nginx restart');
-shell_exec('sudo /etc/init.d/nginx stop');
-shell_exec('sudo /etc/init.d/nginx start');
+shell_exec('sudo /etc/init.d/nginx reload');
 }
 ?>
