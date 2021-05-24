@@ -4,7 +4,7 @@ shell_exec('bash /usr/share/jitsi-meet/confpage/chdat.sh leer');
 $dominio = $_SERVER['HTTP_HOST'];
 $rutaSalas = str_replace('.', '%2e', $dominio);
 $rutaSalas = '/var/lib/prosody/conference%2e'.$rutaSalas.'/config';
-shell_exec('sudo /etc/init.d/prosody stop');
+//shell_exec('sudo /etc/init.d/prosody stop');
 
 $id = substr(uniqid(rand()).uniqid(rand()),0,-13);
 $id = substr_replace($id, '-', 8, 0);
@@ -45,7 +45,7 @@ foreach ($lectura as $value) {
 fclose($file);
 shell_exec('sudo chown prosody:prosody '.$rutaSalas.'/'.$generatedRoom.'.dat');
 
-shell_exec('sudo /etc/init.d/prosody start');
+//shell_exec('sudo /etc/init.d/prosody start');
 shell_exec('bash /usr/share/jitsi-meet/confpage/chdat.sh');
 }
 ?>
