@@ -33,21 +33,25 @@ function comeet(){
   apt-get -y install docker.io &> $trash #
   let "proc -= 1"
   echo "Remaining processes: "$proc
+  echo
 
   # We ask the user for a domain
   echo
   echo "Set a domain"
   read DOMAIN 
+  echo
   #
   echo "Mounting the docker container"
   docker build -t jitsi --build-arg DOMAIN=$DOMAIN . &> $trash #
   let "proc -= 1"
   echo "Remaining processes: "$proc
+  echo
   #
   echo "Running the docker container"
   docker run -p 443:443/tcp -p 80:80/tcp -p 10000:10000/udp -p 3478:3478/udp -p 5349:5349/tcp --name contenedor-jitsi -d jitsi &> $trash #
   let "proc -= 1"
   echo "Remaining processes: "$proc
+  echo
   #
   echo "Starting the services in the container"
   docker exec -it contenedor-jitsi service nginx start &> $trash #
@@ -56,6 +60,7 @@ function comeet(){
   docker exec -it contenedor-jitsi service jicofo start &> $trash #
   let "proc -= 1"
   echo "Remaining processes: "$proc
+  echo
   #
   echo "Starting to set up the configuration files"
   #
