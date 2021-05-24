@@ -12,6 +12,7 @@ RUN apt update \
     && apt -y install systemd; apt clean all;
 
 RUN apt install -y wget curl gpg apt-transport-https software-properties-common \
+    && add-apt-repository ppa:ondrej/php \
     && apt update
 
 RUN curl https://download.jitsi.org/jitsi-key.gpg.key | sh -c 'gpg --dearmor > /usr/share/keyrings/jitsi-keyring.gpg' \
@@ -20,7 +21,7 @@ RUN curl https://download.jitsi.org/jitsi-key.gpg.key | sh -c 'gpg --dearmor > /
     && wget https://prosody.im/files/prosody-debian-packages.key -O- | apt-key add - \
     && apt update
 
-RUN apt-get install -y prosody sudo php7.2 \
+RUN apt-get install -y prosody sudo php7.2-fpm \
     && echo ${DOMAIN} | apt install -y jitsi-meet
 
 CMD ["/sbin/init"]
