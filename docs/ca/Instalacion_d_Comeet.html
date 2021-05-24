@@ -57,17 +57,17 @@
                 <div class="Side">
                 <aside class="menu">
                   <p class="menu-label">
-                    Empezando
+                    començant
                   </p>
                   <ul class="menu-list">
-                    <li><a href="./Prerrequisitos.html" class="is-active">Prerrequisitos</a></li>
-                    <li><a href="./Instalacion_Comeet.html">Instalacion de Comeet</a></li>
+                    <li><a href="./RequisitsPrevis.html">Requisits previs</a></li>
+                    <li><a href="./Instalacion_d_Comeet.html" class="is-active">Instalacion d'Comeet</a></li>
                   </ul>
                   <p class="menu-label">
                     Hola, Comeet!
                   </p>
                   <ul class="menu-list">
-                    <li><a href="./Comenzando_el_encuentro.html">Comenzando el encuentro</a></li>
+                    <li><a href="./Començant_la_trobada.html">Començant la trobada</a></li>
                       
                 </aside>
               </div>
@@ -76,13 +76,21 @@
               <!--Documentation Content-->
               <div class="Main">
                 <div class="content is-normal">
-                  <h1>Prerrequisitos</h1>
-                  <h3>Antes de comenzar, deberá tener lo siguiente:</h3>
-                  <ul>
-                    <li>Una configuración de servidor <b> Ubuntu 20.04 </b>. Debe tener un usuario no root con privilegios sudo. </li>
-                    <li> <b> git </b> instalado en la máquina que usará para acceder al repositorio. </li>
-                    <li> <b> sed </b> instalado en la máquina, el script de instalación necesita este comando. </li> 
-                  </ul>
+                    <H1> Instal·lació de Comeet </h1>
+                        <P> Per instal·lar el comeet en Ubuntu, primer actualitzi el seu llista de paquets: </p>
+                        <Blockquote> sudo apt update </blockquote>
+                        <P> després clona el repositori en el teu servidor </p>
+                        <Blockquote> git clone https://github.com/Yaisan/comeet.git </blockquote>
+                        <P> accés a l'repositori clonat </p>
+                        <Blockquote> cd comeet </blockquote>
+                        <P> concedeixi permisos per a executar l'script </p>
+                        <Blockquote> chmod 0755 comeet.sh </blockquote>
+                        <P> executar l'script amb permisos de root </p>
+                        <Blockquote> sudo bash comeet.sh </blockquote>
+                        <P class = "has-text-danger"> quan s'executi l'script, li demanarà que ingressi un domini per al servidor </p>
+                        <Blockquote> · · · · · · · ·<br><br>Set a domain</blockquote>
+                        <P> i l'script estarà acabat i comeet ja estarà instal·lat </p>
+                    &nbsp; 
                 </div>
               </div>
             </div>

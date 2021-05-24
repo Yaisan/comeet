@@ -60,8 +60,8 @@
                     Empezando
                   </p>
                   <ul class="menu-list">
-                    <li><a href="./Prerrequisitos.html" class="is-active">Prerrequisitos</a></li>
-                    <li><a href="./Instalacion_Comeet.html">Instalacion de Comeet</a></li>
+                    <li><a href="./Prerrequisitos.html">Prerrequisitos</a></li>
+                    <li><a href="./Instalacion_Comeet.html" class="is-active">Instalacion de Comeet</a></li>
                   </ul>
                   <p class="menu-label">
                     Hola, Comeet!
@@ -76,13 +76,21 @@
               <!--Documentation Content-->
               <div class="Main">
                 <div class="content is-normal">
-                  <h1>Prerrequisitos</h1>
-                  <h3>Antes de comenzar, deberá tener lo siguiente:</h3>
-                  <ul>
-                    <li>Una configuración de servidor <b> Ubuntu 20.04 </b>. Debe tener un usuario no root con privilegios sudo. </li>
-                    <li> <b> git </b> instalado en la máquina que usará para acceder al repositorio. </li>
-                    <li> <b> sed </b> instalado en la máquina, el script de instalación necesita este comando. </li> 
-                  </ul>
+                    <h1> Instalación de Comeet </h1>
+                    <p> Para instalar el comeet en Ubuntu, primero actualice su lista de paquetes: </p>
+                    <blockquote>sudo apt update</blockquote>
+                    <p> luego clona el repositorio en tu servidor </p>
+                    <blockquote> git clone https://github.com/Yaisan/comeet.git </blockquote>
+                    <p> acceso al repositorio clonado </p>
+                    <blockquote> cd comeet </blockquote>
+                    <p> conceda permisos para ejecutar el script </p>
+                    <blockquote> chmod 0755 comeet.sh </blockquote>
+                    <p> ejecutar el script con permisos de superusuario </p>
+                    <blockquote> sudo bash comeet.sh </blockquote>
+                    <p class = "has-text-danger"> cuando se ejecute el script, le pedirá que ingrese un dominio para el servidor </p>
+                    <blockquote> · · · · · · · ·<br><br>Set a domain</blockquote>
+                    <p> y el script estará terminado y comeet ya estará instalado </p>
+                    &nbsp; 
                 </div>
               </div>
             </div>
@@ -97,3 +105,4 @@
           </footer>
     </body>
 </html>
+
