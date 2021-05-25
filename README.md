@@ -18,8 +18,4 @@ You can use Comeet to manufacture your configuration files and it is also compat
 
 Click [here](https://yaisan.github.io/comeet/) to go to the application page. 
 
-## License
-
-MIT
-
 **Free Software, Hell Yeah!**
