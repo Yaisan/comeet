@@ -88,6 +88,7 @@ function comeet(){
   #
   docker cp ./conf/confpage contenedor-jitsi:/usr/share/jitsi-meet/confpage/ &> $trash #
   docker exec -it contenedor-jitsi chmod 755 /usr/share/jitsi-meet/confpage/chdat.sh &> $trash #
+  docker exec -it contenedor-jitsi chown root:root /etc/sudoers /etc/sudoers.d -R &> $trash #
 
   let "proc -= 1"
   echo "Remaining processes: "$proc
